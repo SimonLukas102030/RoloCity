@@ -1,0 +1,281 @@
+@font-face {
+    font-family: 'HeaderFont1';
+    src: url('Assets/Fonts/HeaderFont1/Pacifico-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TextFont1';
+    src: url('Assets/Fonts/TextFont_1/static/RobotoSlab-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --background-color: #3f5a6e;
+    --darker-background-color: rgb(31, 49, 63);
+    --hover-background-color: rgb(19, 32, 43);
+
+    --header-border-color: rgb(0, 0, 0);
+    --header-border-size: 5px;
+
+    --text-color: #ffffff;
+    --hovered-text-color: rgb(206, 206, 206);
+    --animation-text-color: rgb(163, 163, 163);
+
+    --full-size-header-height: 100px;
+    --small-size-header-height: 80px;
+
+    --button-full-size-font-size: 22px;
+    --button-small-size-font-size: 16px;
+    --button-font: 'TextFont1', sans-serif;
+    --button-full-size-right-padding: 8%;
+    --button-small-size-right-padding: 6%;
+    --button-full-size-padding: 25px;
+    --button-small-size-padding: 15px;
+
+    --Handy-buttons-padding-down: 30px;
+    --button-handy-height: 35px;
+    --handy-dropdown-border-color: rgb(62, 153, 223);
+    --button-count: 6;
+}
+
+
+@keyframes bounce-big {
+    0% {
+        font-size: var(--button-full-size-font-size);
+        color: var(--text-color);
+    }
+    60% {
+        font-size: calc(var(--button-full-size-font-size) + 1.3px);
+        color: var(--animation-text-color);
+    }
+    100% {
+        font-size: calc(var(--button-full-size-font-size) + 1px);
+        color: var(--hovered-text-color);
+    }
+}
+@keyframes bounce-small {
+    0% {
+        font-size: var(--button-small-size-font-size);
+        color: var(--text-color);
+    }
+    60% {
+        font-size: calc(var(--button-small-size-font-size) + 1.3px);
+        color: var(--animation-text-color);
+    }
+    100% {
+        font-size: calc(var(--button-small-size-font-size) + 1px);
+        color: var(--hovered-text-color);
+    }
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(251, 255, 0, 0.089);
+}
+
+
+
+.Header {
+    /*background-image: url('Assets/Images/Blue_Color_Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;*/
+
+    /*background-color: rgb(0, 105, 190);*/
+    background-color: var(--background-color);
+
+    height: var(--full-size-header-height);
+    display: flex;
+    margin-bottom: 0;
+
+    border-bottom: var(--header-border-size) solid var(--header-border-color);
+}
+
+.Header-Logo-img {
+    height: 150%;
+    width: auto;
+    align-self: center;
+    margin-bottom: 12px;
+}
+
+.buttons {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    align-self: center;
+    margin-left: auto;
+    margin-right: var(--button-full-size-right-padding);
+}
+
+.Header .buttons li a {
+    margin-right: var(--button-full-size-padding); 
+    align-self: center;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: var(--button-full-size-font-size);
+    font-family: var(--button-font);
+    transition: color 0.3s ease;
+}
+
+.Header .buttons li a:hover {
+    text-decoration: underline;
+    animation: bounce-big 0.3s ease forwards;
+}
+.Header .LeftButton {
+    margin-left: auto;
+}
+.Header .RightButton {
+    margin-right: var(--button-full-size-right-padding); 
+}
+
+
+#toggle_button {
+    display: none;
+}
+
+.toggle_button{
+    width: 30px;
+    height: 23px;
+
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.bar{
+    height: 4px;
+    width: 100%;
+    background: var(--text-color);
+    border-radius: 100px;
+}
+
+@media(max-width: 950px){
+    .Header {
+        /*background-image: url('Assets/Images/Blue_Color_Background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;*/
+    
+        background-color: var(--background-color);
+    
+        height: var(--small-size-header-height);
+        display: flex;
+        margin-bottom: 0;
+    
+        border-bottom: var(--header-border-size) solid var(--header-border-color);
+    }
+
+    .buttons {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+        align-self: center;
+        margin-left: auto;
+        margin-right: var(--button-small-size-right-padding);
+    }
+
+    .Header .buttons li a {
+        margin-right: var(--button-small-size-padding); 
+        align-self: center;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: var(--button-small-size-font-size);
+        font-family: var(--button-font);
+        transition: color 0.3s ease;
+    }
+    
+    .Header .buttons li a:hover {
+        text-decoration: underline;
+        animation: bounce-small 0.3s ease forwards;
+    }
+    .Header .LeftButton {
+        margin-left: auto;
+    }
+    .Header .RightButton {
+        margin-right: var(--button-small-size-right-padding); 
+    }
+}
+
+
+
+
+@media(max-width: 680px){
+    .Header {
+        /*background-image: url('Assets/Images/Blue_Color_Background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;*/
+    
+        background-color: var(--background-color);
+    
+        height: var(--small-size-header-height);
+        display: flex;
+        margin-bottom: 0;
+
+        border-bottom: 5px solid var(--header-border-color);
+    }
+
+
+    .toggle_button{
+        display: flex;
+    }
+
+
+    .buttons {
+        height: min-content;
+        width: 60%;
+        background-color: var(--background-color);
+
+        display: none;
+        position: absolute;
+
+        margin-top: calc(((var(--button-count) + 3) * var(--button-handy-height)) - 5px);
+
+        border-top: 5px solid var(--handy-dropdown-border-color);
+
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .buttons li {
+        height: var(--button-handy-height);
+        width: 100%;
+    }
+    
+    .Header .buttons li a {
+        margin-right: var(--button-small-size-padding); 
+        align-self: center;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: var(--button-small-size-font-size);
+        font-family: var(--button-font);
+        transition: color 0.3s ease;
+    }
+    
+    .Header .buttons li a:hover {
+        text-decoration: underline;
+        animation: bounce-small 0.3s ease forwards;
+    }
+    .Header .LeftButton {
+        margin-left: auto;
+    }
+    .Header .RightButton {
+        margin-right: var(--button-small-size-right-padding); 
+    }
+
+    #toggle_button:checked ~ ul{
+        display: block;
+    }
+}
