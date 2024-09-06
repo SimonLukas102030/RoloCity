@@ -13,7 +13,6 @@
 
 :root{
     --background-color: #3f5a6e;
-    --darker-background-color: rgb(31, 49, 63);
     --hover-background-color: rgb(19, 32, 43);
 
     --header-border-color: rgb(0, 0, 0);
@@ -31,7 +30,7 @@
     --button-padding: 25px;
 
     --Handy-buttons-padding-down: 30px;
-    --button-handy-height: 35px;
+    --button-handy-height: 50px;
     --handy-dropdown-border-color: rgb(62, 153, 223);
     --button-count: 6;
 }
@@ -80,6 +79,10 @@ body {
     margin-bottom: 0;
 
     border-bottom: var(--header-border-size) solid var(--header-border-color);
+}
+
+#toggle_button {
+    display: none;
 }
 
 .Header-Logo-img {
@@ -194,14 +197,42 @@ body {
         text-decoration: underline;
         animation: darker 0.3s ease forwards;
     }
-}
-@media(max-width: 530px){
-    :root{  
-        --header-height: 80px;
-        --button-font: 'TextFont1', sans-serif;
-        --button-padding: 12px;
+    .Header .LeftButton {
+        margin-left: 0;
     }
-    .buttons li a {
+}
+
+@media(max-width: 530px){
+    .toggle_button{
+        display: flex;
+        align-items: flex-start;
+    }
+    .buttons {
+        height: min-content;
+        --Dropdown-height: min-content;
+        width: 75%;
+        background: var(--background-color);
+
         display: none;
+        position: absolute;
+        top: var(--header-height);
+
+        border-top: 5px solid var(--handy-dropdown-border-color);
+
+        justify-content: flex-start;
+        align-self: center;
+    }
+    .buttons li{
+        height: var(--button-handy-height);
+        width: 100%;
+    }
+    .buttons ul a{
+        padding: var(--Handy-buttons-padding-down) 0;
+    }
+    #toggle_button:checked ~ ul{
+        display: block;
+    }
+    nav li:hover {
+        background-color: var(--hover-background-color);
     }
 }
