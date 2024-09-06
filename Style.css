@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'HeaderFont1';
+    src: url('Assets/Fonts/HeaderFont1/Pacifico-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TextFont1';
+    src: url('Assets/Fonts/TextFont_1/static/RobotoSlab-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --background-color: #3f5a6e;
+    --darker-background-color: rgb(31, 49, 63);
+    --hover-background-color: rgb(19, 32, 43);
+
+    --header-border-color: rgb(0, 0, 0);
+    --header-border-size: 5px;
+
+    --text-color: #ffffff;
+    --hovered-text-color: rgb(206, 206, 206);
+    --animation-text-color: rgb(163, 163, 163);
+
+    --header-height: 100px;
+
+    --button-font-size: 22px;
+    --button-font: 'TextFont1', sans-serif;
+    --button-right-padding: 8%;
+    --button-padding: 25px;
+
+    --Handy-buttons-padding-down: 30px;
+    --button-handy-height: 35px;
+    --handy-dropdown-border-color: rgb(62, 153, 223);
+    --button-count: 6;
+}
+
+
+@keyframes bounce {
+    0% {
+        font-size: var(--button-font-size);
+        color: var(--text-color);
+    }
+    60% {
+        font-size: calc(var(--button-font-size) + (var(--button-font-size) / 10));
+        color: var(--animation-text-color);
+    }
+    100% {
+        font-size: calc(var(--button-font-size) + (var(--button-font-size) / 15));
+        color: var(--hovered-text-color);
+    }
+}
+@keyframes darker {
+    0% {
+        color: var(--text-color);
+    }
+    60% {
+        color: var(--animation-text-color);
+    }
+    100% {
+        color: var(--hovered-text-color);
+    }
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(251, 255, 0, 0.089);
+}
+
+
+
+.Header {
+    background-color: var(--background-color);
+
+    height: var(--header-height);
+    display: flex;
+    margin-bottom: 0;
+
+    border-bottom: var(--header-border-size) solid var(--header-border-color);
+}
+
+.Header-Logo-img {
+    height: 150%;
+    width: auto;
+    align-self: center;
+    margin-bottom: 12px;
+}
+
+.buttons {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    align-self: center;
+    margin-left: auto;
+    margin-right: var(--button-right-padding);
+}
+
+.buttons li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: var(--button-padding); 
+}
+.buttons li:hover i {
+    animation: darker 0.3s ease forwards;
+}
+.buttons li:hover a {
+    text-decoration: underline;
+    animation: bounce 0.3s ease forwards;
+}
+
+.buttons li i {
+    margin-right: 5px;
+    font-size: var(--button-font-size);
+}
+
+.buttons li a {
+    align-self: center;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: var(--button-font-size);
+    font-family: var(--button-font);
+    transition: color 0.3s ease;
+}
+
+
+.Header .LeftButton {
+    margin-left: auto;
+}
+.Header .RightButton {
+    margin-right: var(--button-right-padding); 
+}
+
+
+#toggle_button {
+    display: none;
+}
+
+.toggle_button{
+    width: 30px;
+    height: 23px;
+
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.bar{
+    height: 4px;
+    width: 100%;
+    background: var(--text-color);
+    border-radius: 100px;
+}
+
+@media (max-width: 1100px){
+    :root{  
+        --header-height: 80px;
+        --button-font-size: 16px;
+        --button-font: 'TextFont1', sans-serif;
+        --button-right-padding: 6%;
+        --button-padding: 15px;
+    }
+}
+
+
+@media(max-width: 800px){
+    :root{  
+        --button-right-padding: 0%;
+    }
+
+    .buttons li {
+        flex-direction: column;
+    }
+    .buttons li i {
+        font-size: calc(var(--button-font-size) * 1.5);
+    }
+    .buttons li a {
+        font-size: calc(var(--button-font-size) / 1.5);
+    }
+
+    .buttons li:hover i {
+        animation: darker 0.3s ease forwards;
+    }
+    .buttons li:hover a {
+        text-decoration: underline;
+        animation: darker 0.3s ease forwards;
+    }
+}
+@media(max-width: 530px){
+    :root{  
+        --header-height: 80px;
+        --button-font: 'TextFont1', sans-serif;
+        --button-padding: 12px;
+    }
+    .buttons li a {
+        display: none;
+    }
+}
